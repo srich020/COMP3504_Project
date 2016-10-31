@@ -61,7 +61,7 @@ namespace Term_Project_COMP_3504
 		{
 			
 			// aapt resource value: 0x7f050000
-			public const int switch1 = 2131034112;
+			public const int grades = 2131034112;
 			
 			static Id()
 			{

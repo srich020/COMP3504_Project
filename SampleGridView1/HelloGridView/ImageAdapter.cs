@@ -38,9 +38,9 @@ namespace HelloGridView
             {
                 // if it's not recycled, initialize some attributes
                 imageView = new ImageView(context);
-                imageView.LayoutParameters = new AbsListView.LayoutParams(85, 85);
-                imageView.SetScaleType(ImageView.ScaleType.CenterCrop);
-                imageView.SetPadding(2, 2, 2, 2);
+                imageView.LayoutParameters = new AbsListView.LayoutParams(45, 45);
+                imageView.SetScaleType(ImageView.ScaleType.CenterCrop); //ensures images stay square
+                imageView.SetPadding(1, 1, 1, 1); //padding around, but will stretch to fill the whole screen
             }
             else
             {

@@ -9,15 +9,15 @@ namespace Term_Project_COMP_3504
     {
         protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate(bundle);
 
-            // Set our view from the "main" layout resource
-           SetContentView (Resource.Layout.Main);
+
+            SetContentView(Resource.Layout.Main);
+
+            var gridview = FindViewById<GridView>(Resource.Id.gridview);
+            gridview.Adapter = new ImageAdapter(this);
+
+            gridview.ItemClick += (sender, args) => Toast.MakeText(this, args.Position.ToString(), ToastLength.Short).Show();
         }
-
-
-  
-
     }
 }
 

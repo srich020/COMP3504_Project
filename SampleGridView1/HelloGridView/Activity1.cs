@@ -17,6 +17,7 @@ namespace HelloGridView
             gridview.Adapter = new ImageAdapter(this);
 
             gridview.ItemClick += (sender, args) => Toast.MakeText(this, args.Position.ToString(), ToastLength.Short).Show();
+         
         }
     }
 }

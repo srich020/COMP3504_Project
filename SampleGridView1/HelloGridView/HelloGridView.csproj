@@ -52,6 +52,7 @@
     <Compile Include="MainMenu.cs" />
     <Compile Include="Assets\Class1.cs" />
     <Compile Include="ImageAdapter.cs" />
+    <Compile Include="Options.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -63,6 +64,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\Layout\MainMenuLayout.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\OptionsLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

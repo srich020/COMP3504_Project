@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android;
 
 namespace MainMenu
 {
@@ -22,7 +23,7 @@ namespace MainMenu
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resources.Layout.MainMenuLayout);
+            SetContentView(Resource.Layout.MainMenuLayout);
             // Create your application here
             getViews();
         }

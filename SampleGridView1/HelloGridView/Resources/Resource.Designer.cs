@@ -130,6 +130,9 @@ namespace HelloGridView
 			// aapt resource value: 0x7f030002
 			public const int MainMenuLayout = 2130903042;
 			
+			// aapt resource value: 0x7f030003
+			public const int OptionsLayout = 2130903043;
+			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

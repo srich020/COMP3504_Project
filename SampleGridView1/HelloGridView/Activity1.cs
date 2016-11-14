@@ -12,6 +12,7 @@ namespace HelloGridView
     {
         private int count = 0;
         public string put = "";
+        public TextView debug = null;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -22,10 +23,10 @@ namespace HelloGridView
             //initializes the gridview. Set the adapter to the customer ImageAdapter
             var gridview = FindViewById<GridView>(Resource.Id.gridview);
             gridview.Adapter = new ImageAdapter(this);
-
+            debug = FindViewById<TextView>(HelloGridView.Resource.Id.textview);
             //on click effect
             gridview.ItemClick += Gridview_ItemClick;
-
+            
         }
 
         private void Gridview_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -38,9 +39,7 @@ namespace HelloGridView
             }else
             {
                 put += e.Position.ToString() + "," + e.Id;
-                var activity2 = new Intent(this, typeof(Activity2));
-                    activity2.PutExtra("one",put);
-                     StartActivity(activity2);
+                debug.Text = put;
                     count = 0;
                 put = "";
             }

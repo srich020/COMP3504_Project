@@ -240,3 +240,5 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+SampleGridView1/HelloGridView/Resources/Resource.Designer.cs
+SampleGridView1/HelloGridView/Resources/Resource.Designer.cs

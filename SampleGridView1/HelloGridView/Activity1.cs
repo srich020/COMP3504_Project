@@ -7,7 +7,7 @@ using Android.Systems;
 
 namespace HelloGridView
 {
-    [Activity(Label = "HelloGridView", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "HelloGridView",Icon = "@drawable/icon")]
     public class Activity1 : Activity
     {
         private int count = 0;

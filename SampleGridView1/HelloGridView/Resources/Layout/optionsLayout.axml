@@ -10,12 +10,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView1" />
     <CheckBox
-        android:text="MUSIC"
+        android:text="SOUND"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/checkBox1" />
     <CheckBox
-        android:text="SOUND"
+        android:text="MUSIC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/checkBox2" />

@@ -10,15 +10,15 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace Options
+namespace HelloGridView
 {
-    [Activity(Label = "Options")]
+    [Activity(Label = "HelloGridView")]
     public class Options : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(HelloGridView.Resource.Layout.MainMenuLayout);
+            SetContentView(HelloGridView.Resource.Layout.optionsLayout);
             // Create your application here
         }
     }

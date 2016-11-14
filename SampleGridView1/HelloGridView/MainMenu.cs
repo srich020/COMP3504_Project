@@ -26,6 +26,7 @@ namespace MainMenu
             SetContentView(HelloGridView.Resource.Layout.MainMenuLayout);
             getViews();
             PlayButton.Click += PlayButton_Click;
+            OptionsButton.Click += OptionsButton_Click;
         }
 
         private void PlayButton_Click(object sender, EventArgs e)
@@ -33,12 +34,16 @@ namespace MainMenu
             var game = new Intent(this, typeof(HelloGridView.Activity1));
             StartActivity(game);
         }
+        private void OptionsButton_Click(object sender, EventArgs e)
+        {
+            StartActivity(new Intent(this, typeof(HelloGridView.Options)));
+        }
 
         private void getViews()
         {
             PlayButton = FindViewById<Button>(HelloGridView.Resource.Id.playButton);
             //HighScoresButton = FindViewById<Button>(Resource.Id.scoreButton);
-            //OptionsButton = FindViewById<Button>(Resource.Id.optionsButton);
+            OptionsButton = FindViewById<Button>(HelloGridView.Resource.Id.optionsButton);
         }
     }
 }

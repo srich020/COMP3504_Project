@@ -45,31 +45,31 @@ namespace HelloGridView
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int Blue_selected = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int sample_0 = 2130837505;
+			public const int Blue_static = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int sample_1 = 2130837506;
+			public const int Green_selected = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int sample_2 = 2130837507;
+			public const int Green_static = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int sample_3 = 2130837508;
+			public const int Icon = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int sample_4 = 2130837509;
+			public const int Red_selected = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int sample_5 = 2130837510;
+			public const int Red_static = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int sample_6 = 2130837511;
+			public const int Yellow_selected = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int sample_7 = 2130837512;
+			public const int Yellow_static = 2130837512;
 			
 			static Drawable()
 			{
@@ -88,7 +88,10 @@ namespace HelloGridView
 			public const int button1 = 2131034113;
 			
 			// aapt resource value: 0x7f050002
-			public const int gridview = 2131034114;
+			public const int button2 = 2131034114;
+			
+			// aapt resource value: 0x7f050003
+			public const int gridview = 2131034115;
 			
 			// aapt resource value: 0x7f050000
 			public const int textView1 = 2131034112;

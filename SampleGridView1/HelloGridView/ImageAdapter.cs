@@ -38,9 +38,9 @@ namespace HelloGridView
             {
                 // if it's not recycled, initialize some attributes
                 imageView = new ImageView(context);
-                imageView.LayoutParameters = new AbsListView.LayoutParams(75, 75);
-                imageView.SetScaleType(ImageView.ScaleType.CenterCrop); //ensures images stay square
-                imageView.SetPadding(1, 1, 1, 1); //padding around, but will stretch to fill the whole screen
+               imageView.LayoutParameters = new AbsListView.LayoutParams(75, 75);
+               imageView.SetScaleType(ImageView.ScaleType.CenterCrop); //ensures images stay square
+              //  imageView.SetPadding(1, 1, 1, 1); //padding around, but will stretch to fill the whole screen
             }
             else
             {
@@ -53,17 +53,16 @@ namespace HelloGridView
 
         // references to our images
         private readonly int[] thumbIds = {
-                                              Resource.Drawable.sample_2, Resource.Drawable.sample_2,
-                                              Resource.Drawable.sample_2, Resource.Drawable.sample_5,
-                                              Resource.Drawable.sample_6, Resource.Drawable.sample_7,
-                                              Resource.Drawable.sample_0, Resource.Drawable.sample_1,
-                                              Resource.Drawable.sample_2, Resource.Drawable.sample_3,
-                                              Resource.Drawable.sample_4, Resource.Drawable.sample_5,
-                                              Resource.Drawable.sample_6, Resource.Drawable.sample_7,
-                                              Resource.Drawable.sample_0, Resource.Drawable.sample_1,
-                                              Resource.Drawable.sample_2, Resource.Drawable.sample_3,
-                                              Resource.Drawable.sample_4, Resource.Drawable.sample_5,
-                                              Resource.Drawable.sample_6, Resource.Drawable.sample_7
+                                              Resource.Drawable.Blue_static, Resource.Drawable.Green_static,
+                                              Resource.Drawable.Red_static, Resource.Drawable.Yellow_static,
+                                              Resource.Drawable.Blue_static, Resource.Drawable.Green_static,
+                                              Resource.Drawable.Red_static, Resource.Drawable.Yellow_static,
+                                              Resource.Drawable.Blue_static, Resource.Drawable.Green_static,
+                                              Resource.Drawable.Red_static, Resource.Drawable.Yellow_static,
+                                              Resource.Drawable.Blue_static, Resource.Drawable.Green_static,
+                                              Resource.Drawable.Red_static, Resource.Drawable.Yellow_static,
+                                              Resource.Drawable.Blue_static, Resource.Drawable.Green_static,
+                                              Resource.Drawable.Red_static, Resource.Drawable.Yellow_static
                                           };
     }
 }

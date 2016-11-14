@@ -30,13 +30,14 @@ namespace HelloGridView
 
         private void Gridview_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
+            
             count++;
             if (count < 3)
             {
-                put += e.Position.ToString() + ",";
+                put += e.Position.ToString() + "," + e.Id;
             }else
             {
-                put += e.Position.ToString();
+                put += e.Position.ToString() + "," + e.Id;
                 var activity2 = new Intent(this, typeof(Activity2));
                     activity2.PutExtra("one",put);
                      StartActivity(activity2);

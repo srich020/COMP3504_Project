@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Activity1.cs" />
     <Compile Include="Activity2.cs" />
+    <Compile Include="Assets\Class1.cs" />
     <Compile Include="ImageAdapter.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -84,6 +84,9 @@ namespace HelloGridView
 		public partial class Id
 		{
 			
+			// aapt resource value: 0x7f050004
+			public const int MMtitle = 2131034116;
+			
 			// aapt resource value: 0x7f050001
 			public const int button1 = 2131034113;
 			
@@ -92,6 +95,15 @@ namespace HelloGridView
 			
 			// aapt resource value: 0x7f050003
 			public const int gridview = 2131034115;
+			
+			// aapt resource value: 0x7f050007
+			public const int optionsButton = 2131034119;
+			
+			// aapt resource value: 0x7f050005
+			public const int playButton = 2131034117;
+			
+			// aapt resource value: 0x7f050006
+			public const int scoreButton = 2131034118;
 			
 			// aapt resource value: 0x7f050000
 			public const int textView1 = 2131034112;
@@ -114,6 +126,9 @@ namespace HelloGridView
 			
 			// aapt resource value: 0x7f030001
 			public const int Main = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int MainMenuLayout = 2130903042;
 			
 			static Layout()
 			{

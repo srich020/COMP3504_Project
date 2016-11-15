@@ -42,7 +42,7 @@ namespace HelloGridView
                 imageView = new ImageView(context);
                 imageView.LayoutParameters = new AbsListView.LayoutParams(100, 100);
                 imageView.SetScaleType(ImageView.ScaleType.CenterCrop); //ensures images stay square
-               imageView.SetPadding(1, 1, 1, 1); //padding around, but will stretch to fill the whole screen
+                imageView.SetPadding(1, 1, 1, 1); //padding around, but will stretch to fill the whole screen
                
                 
             }

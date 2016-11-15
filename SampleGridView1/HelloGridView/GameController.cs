@@ -39,8 +39,8 @@ namespace HelloGridView
             int[] colors = {Resource.Drawable.Blue_static, Resource.Drawable.Green_static,
                             Resource.Drawable.Red_static, Resource.Drawable.Yellow_static };
 
-            int[] scolors = {Resource.Drawable.Blue_static, Resource.Drawable.Blue_static,
-                            Resource.Drawable.Blue_static, Resource.Drawable.Blue_static };
+            int[] scolors = {Resource.Drawable.Blue_selected, Resource.Drawable.Green_selected,
+                            Resource.Drawable.Red_selected, Resource.Drawable.Yellow_selected };
 
             Random rng = new Random();
             for(int row=0; row < board.GetLength(0);row++)

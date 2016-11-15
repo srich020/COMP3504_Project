@@ -48,8 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activity1.cs" />
+    <Compile Include="GameController.cs" />
     <Compile Include="MainMenu.cs" />
-    <Compile Include="Assets\Class1.cs" />
+    <Compile Include="ColorSquare.cs" />
     <Compile Include="ImageAdapter.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

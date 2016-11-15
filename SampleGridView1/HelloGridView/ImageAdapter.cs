@@ -7,6 +7,9 @@ namespace HelloGridView
 {
     public class ImageAdapter : BaseAdapter
     {
+
+        private GameController gameCntr = GameController.getInstance();
+
         private readonly Context context;
         public ImageAdapter(Context c)
         {
@@ -15,7 +18,7 @@ namespace HelloGridView
 
         public override int Count
         {
-            get { return thumbIds.Length; }
+            get { return gameCntr.length(); }
         }
 
         public override Object GetItem(int position)
@@ -37,11 +40,10 @@ namespace HelloGridView
             {
                 // if it's not recycled, initialize some attributes
                 imageView = new ImageView(context);
-               imageView.LayoutParameters = new AbsListView.LayoutParams(100, 100);
-               imageView.SetScaleType(ImageView.ScaleType.CenterCrop); //ensures images stay square
-              imageView.SetPadding(1, 1, 1, 1); //padding around, but will stretch to fill the whole screen
-                imageView.Id = thumbIds[position];
-                imageView.SetTag(thumbIds[position],"blue");
+                imageView.LayoutParameters = new AbsListView.LayoutParams(100, 100);
+                imageView.SetScaleType(ImageView.ScaleType.CenterCrop); //ensures images stay square
+               imageView.SetPadding(1, 1, 1, 1); //padding around, but will stretch to fill the whole screen
+               
                 
             }
             else
@@ -49,25 +51,11 @@ namespace HelloGridView
                 imageView = (ImageView) convertView;
             }
 
-            imageView.SetImageResource(thumbIds[position]);
+            ColorSquare sel = gameCntr.get(position);
+            imageView.SetImageResource(sel.showColor());
             return imageView;
         }
 
-        // references to our images
-        private readonly int[] thumbIds = {
-                                              Resource.Drawable.Blue_static, Resource.Drawable.Green_static,
-                                              Resource.Drawable.Red_static, Resource.Drawable.Yellow_static,
-                                              Resource.Drawable.Blue_static, Resource.Drawable.Green_static,
-                                              Resource.Drawable.Red_static, Resource.Drawable.Yellow_static,
-                                              Resource.Drawable.Blue_static, Resource.Drawable.Green_static,
-                                              Resource.Drawable.Red_static, Resource.Drawable.Yellow_static,
-                                              Resource.Drawable.Blue_static, Resource.Drawable.Green_static,
-                                              Resource.Drawable.Red_static, Resource.Drawable.Yellow_static,
-                                              Resource.Drawable.Blue_static, Resource.Drawable.Green_static,
-                                              Resource.Drawable.Red_static, Resource.Drawable.Yellow_static,
-                                               Resource.Drawable.Red_static, Resource.Drawable.Yellow_static,
-                                                Resource.Drawable.Red_static, Resource.Drawable.Yellow_static
-
-                                          };
+      
     }
 }

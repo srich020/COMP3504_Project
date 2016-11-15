@@ -13,6 +13,10 @@ namespace HelloGridView
         private int count = 0;
         public string put = "";
         public TextView debug = null;
+        private GridView gridview;
+        private ImageAdapter gridAdapter;
+
+        private GameController gameCntr = GameController.getInstance();
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -21,28 +25,27 @@ namespace HelloGridView
             SetContentView(Resource.Layout.Main);
 
             //initializes the gridview. Set the adapter to the customer ImageAdapter
-            var gridview = FindViewById<GridView>(Resource.Id.gridview);
-            gridview.Adapter = new ImageAdapter(this);
+            gridview = FindViewById<GridView>(Resource.Id.gridview);
+            
+            gridAdapter = new ImageAdapter(this);
+            gridview.Adapter = gridAdapter;
             debug = FindViewById<TextView>(HelloGridView.Resource.Id.textview);
             //on click effect
             gridview.ItemClick += Gridview_ItemClick;
-            
+           
+                gameCntr.loadBoard();
         }
+
+       
 
         private void Gridview_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-            
-            count++;
-            if (count < 3)
-            {
-                put += e.Position.ToString() + "," + e.Id;
-            }else
-            {
-                put += e.Position.ToString() + "," + e.Id;
-                debug.Text = put;
-                    count = 0;
-                put = "";
-            }
+           
+            //sel.colorValue = Resource.Drawable.Blue_static;
+
+            gameCntr.updateWorldState(e.Position);
+           
+            gridAdapter.NotifyDataSetChanged();
         }
     }
 }

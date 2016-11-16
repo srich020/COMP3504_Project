@@ -20,15 +20,20 @@ namespace HelloGridView
         public int xLoc { get; set; }
         public int yLoc { get; set; }
         public bool selected { get; set;  }
+        private int[] colors ={Resource.Drawable.Blue_static, Resource.Drawable.Green_static,
+                            Resource.Drawable.Red_static, Resource.Drawable.Yellow_static };
+        int[] scolors = {Resource.Drawable.Blue_selected, Resource.Drawable.Green_selected,
+                            Resource.Drawable.Red_selected, Resource.Drawable.Yellow_selected };
 
         public ColorSquare(int cVal, int csVal, int xLo, int yLo, int cNum)
         {
             colorValue = cVal;
             colorSelValue = csVal;
+            colorNum = cNum;
             xLoc = xLo;
             yLoc = yLo;
             selected = false;
-            colorNum = cNum;
+            
         }
 
         public int showColor()
@@ -42,7 +47,19 @@ namespace HelloGridView
             
         }
 
-
+        public void randomizeColor()
+        {
+            Random rng = new Random();
+            int newVal = rng.Next(colors.Length);
+            while (newVal == colorNum)
+            {
+                newVal = rng.Next(colors.Length);
+            }
+            
+            colorValue = colors[newVal];
+            colorSelValue = scolors[newVal];
+            colorNum = newVal;
+        }
        
     }
 }

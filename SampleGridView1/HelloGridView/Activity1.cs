@@ -19,6 +19,7 @@ namespace HelloGridView
         private ImageAdapter gridAdapter;
         private string[] patternArray;
         private int[] selectedValues = new int[3];
+        private ColorSquare[] selectedSquares = new ColorSquare[3];
         private GameController gameCntr = GameController.getInstance();
         private int score;
 
@@ -62,12 +63,13 @@ namespace HelloGridView
             if (count < 3)
             {
                 int selNum = selectedSquare.colorNum;
-                //comboBox.Text = "Selected: " + selNum;
                 selectedValues[count] = selNum;
+                selectedSquares[count] = selectedSquare;
                 count++;
+
                 if (count == 3)
                 {
-                    count++;
+                    
                     
                     for (int i = 0; i < selectedValues.Length; i++)
                     {
@@ -84,6 +86,15 @@ namespace HelloGridView
                         comboBox.Text = "MATCHED MOTHERFUCKER!!!!!";
                         score++;
                         scoreBox.Text = "Score: "+score;
+
+                        for (int s=0;s<selectedSquares.Length;s++)
+                        {
+                            selectedSquares[s].toggleSelected();
+                            selectedSquares[s].randomizeColor();
+                        }
+                        
+
+
                         updatePattern();
                     }
                     else

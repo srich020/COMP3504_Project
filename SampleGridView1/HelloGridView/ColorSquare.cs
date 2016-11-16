@@ -18,16 +18,16 @@ namespace HelloGridView
         public int colorSelValue { get; set; }
         public int xLoc { get; set; }
         public int yLoc { get; set; }
+        public int colorNum { get; set; }
         public bool selected { get; set;  }
 
-        public ColorSquare(int cVal, int csVal, int xLo, int yLo)
+        public ColorSquare(int cVal, int csVal, int xLo, int yLo, int cNum)
         {
             colorValue = cVal;
             colorSelValue = csVal;
             xLoc = xLo;
             yLoc = yLo;
             selected = false;
-            //based on cVal, set the appropriate color image/icon resource
         }
 
         public int showColor()

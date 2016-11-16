@@ -16,6 +16,8 @@ namespace HelloGridView
     {
         private static GameController cntr = null;
         private ColorSquare[,] board;
+        private int[] colors={Resource.Drawable.Blue_static, Resource.Drawable.Green_static,
+                            Resource.Drawable.Red_static, Resource.Drawable.Yellow_static };
 
         public static GameController getInstance()
         {
@@ -36,8 +38,7 @@ namespace HelloGridView
 
         public void loadBoard()
         {
-            int[] colors = {Resource.Drawable.Blue_static, Resource.Drawable.Green_static,
-                            Resource.Drawable.Red_static, Resource.Drawable.Yellow_static };
+          
 
             int[] scolors = {Resource.Drawable.Blue_selected, Resource.Drawable.Green_selected,
                             Resource.Drawable.Red_selected, Resource.Drawable.Yellow_selected };
@@ -50,7 +51,7 @@ namespace HelloGridView
                    int n = rng.Next(colors.Length);
                     int c = colors[n];
                     int cs = scolors[n];
-                    board[row, col] = new ColorSquare(c,cs,col,row);
+                    board[row, col] = new ColorSquare(c,cs,col,row,n);
                 }
 
             }
@@ -76,9 +77,7 @@ namespace HelloGridView
     
             return board[y,x];
         }
-
-
-        
+    
 
         public ColorSquare get(int position)
         {
@@ -87,7 +86,24 @@ namespace HelloGridView
             return get(x, y);
         }
 
-
+        public String[] getRandPattern()
+        {
+            Random rng = new Random();
+            int patternSize= 3;
+        
+            String[] stringPatt = new String[3]; 
+            for (int i=0;i<patternSize;i++){
+                int num = rng.Next(colors.Length);
+                switch (num)
+                {
+                    case 0: stringPatt[i] ="Blue"; break;
+                    case 1: stringPatt[i] = "Green"; break;
+                    case 2: stringPatt[i] = "Red"; break;
+                    case 3: stringPatt[i] = "Yellow"; break;
+                }
+            }
+            return stringPatt;
+        }
       
 
 

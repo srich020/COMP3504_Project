@@ -4,20 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:text="Text"
+        android:text="Next Pattern:"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textview" />
-    <Button
-        android:text="High Score Placeholder"
+        android:textSize="30sp"
+        android:id="@+id/NextPattern" />
+    <TextView
+        android:text="Score Placeholder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button1" />
-    <Button
-        android:text="Current Score Placeholder"
+        android:id="@+id/scoreBox" />
+    <TextView
+        android:text="Combo Placeholder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button2" />
+        android:id="@+id/comboBox" />
     <GridView
         android:id="@+id/gridview"
         android:layout_width="fill_parent"

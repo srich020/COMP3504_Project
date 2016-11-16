@@ -16,9 +16,9 @@ namespace HelloGridView
     {
         public int colorValue { get; set; }
         public int colorSelValue { get; set; }
+        public int colorNum { get; set; }
         public int xLoc { get; set; }
         public int yLoc { get; set; }
-        public int colorNum { get; set; }
         public bool selected { get; set;  }
 
         public ColorSquare(int cVal, int csVal, int xLo, int yLo, int cNum)
@@ -28,6 +28,7 @@ namespace HelloGridView
             xLoc = xLo;
             yLoc = yLo;
             selected = false;
+            colorNum = cNum;
         }
 
         public int showColor()

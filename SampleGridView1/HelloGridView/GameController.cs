@@ -105,7 +105,17 @@ namespace HelloGridView
             return stringPatt;
         }
       
+        public void deToggleAll()
+        {
+            for (int row2 = 0; row2 < board.GetLength(0); row2++)
+            {
+                for (int col2 = 0; col2 < board.GetLength(1); col2++)
+                {
+                    board[row2, col2].selected = false;
+                }
 
+            }
+        }
 
     }
 }

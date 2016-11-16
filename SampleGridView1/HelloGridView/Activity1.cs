@@ -18,7 +18,9 @@ namespace HelloGridView
         private GridView gridview;
         private ImageAdapter gridAdapter;
         private string[] patternArray;
+        private int[] selectedValues = new int[3];
         private GameController gameCntr = GameController.getInstance();
+        private int score;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -38,6 +40,7 @@ namespace HelloGridView
             //on click effect
             gridview.ItemClick += Gridview_ItemClick;
             gameCntr.loadBoard();
+            score = 0;
         }
 
         private void updatePattern()
@@ -52,37 +55,49 @@ namespace HelloGridView
             gameCntr.updateWorldState(e.Position);
             gridAdapter.NotifyDataSetChanged();
             ColorSquare selectedSquare = gameCntr.get(e.Position);
-
-            int[] selectedValues = new int[3];
+            
             string[] stringCompPatt = new string[3];
             //score and match processing
             
             if (count < 3)
             {
                 int selNum = selectedSquare.colorNum;
-                comboBox.Text = "Selected: " + selNum;
+                //comboBox.Text = "Selected: " + selNum;
                 selectedValues[count] = selNum;
                 count++;
+                if (count == 3)
+                {
+                    count++;
+                    
+                    for (int i = 0; i < selectedValues.Length; i++)
+                    {
+                        switch (selectedValues[i])
+                        {
+                            case 0: stringCompPatt[i] = "Blue"; break;
+                            case 1: stringCompPatt[i] = "Green"; break;
+                            case 2: stringCompPatt[i] = "Red"; break;
+                            case 3: stringCompPatt[i] = "Yellow"; break;
+                        }
+                    }
+                    if (stringCompPatt[0]==patternArray[0] && stringCompPatt[1] == patternArray[1] && stringCompPatt[2] == patternArray[2])
+                    {
+                        comboBox.Text = "MATCHED MOTHERFUCKER!!!!!";
+                        score++;
+                        scoreBox.Text = "Score: "+score;
+                        updatePattern();
+                    }
+                    else
+                    {
+                        comboBox.Text = "No match, you suck";
+                        gameCntr.deToggleAll();
+                    }
+                    
+                    count = 0;
+                }
             }
             else
             {
-                //if (patternArray[0]==selectedValues[0])
-                count++;
-                //int selNum = selectedSquare.colorNum;
-                //selectedValues[count] = selNum;
-                comboBox.Text = "else loop";
-                for (int i = 0; i < selectedValues.Length; i++)
-                {
-                    switch (selectedValues[i])
-                    {
-                        case 0: stringCompPatt[i] = "Blue"; break;
-                        case 1: stringCompPatt[i] = "Green"; break;
-                        case 2: stringCompPatt[i] = "Red"; break;
-                        case 3: stringCompPatt[i] = "Yellow"; break;
-                    }
-                }
-                scoreBox.Text = "3 clicked! " + stringCompPatt[0] + ", " + stringCompPatt[1] + ", " + stringCompPatt[2];
-                count = 0;
+                //will never happen
             }
         }
     }

@@ -117,5 +117,40 @@ namespace HelloGridView
             }
         }
 
+        public void processMatch(ColorSquare[] selectedSquares)
+        {
+            //pass array of ColorSquares
+            //do a horizontal compare
+            //do a vertical compare
+            //if either match; go through col / row and randomize() each
+
+            for (int s = 0; s < selectedSquares.Length; s++)
+            {
+
+                selectedSquares[s].toggleSelected();
+                selectedSquares[s].randomizeColor();
+            }
+            
+            //----------------------NONE OF THIS WORKS YET---------------------------------------
+            //horizontal match check and process
+            if (selectedSquares[0].xLoc== selectedSquares[1].xLoc)
+            {//first 2 squaures are on the same row
+                if (selectedSquares[0].xLoc > selectedSquares[1].xLoc)
+                {//first is to the right of second
+                    int diff = selectedSquares[0].xLoc - selectedSquares[1].xLoc;
+                    int startX = selectedSquares[0].xLoc;
+                    for (int i=0;i<diff;i++)
+                    {
+                        get(startX - 1, selectedSquares[0].yLoc).randomizeColor();
+                    }
+                }
+                if (selectedSquares[0].xLoc < selectedSquares[1].xLoc)
+                {//second is to the right of first
+
+                }
+            }
+
+        }
+
     }
 }

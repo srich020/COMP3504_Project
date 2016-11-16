@@ -68,9 +68,9 @@ namespace HelloGridView
                 count++;
 
                 if (count == 3)
-                {
+                {//if three selected total, process score
                     
-                    
+                    //create a string list to compare from the selected values
                     for (int i = 0; i < selectedValues.Length; i++)
                     {
                         switch (selectedValues[i])
@@ -81,24 +81,24 @@ namespace HelloGridView
                             case 3: stringCompPatt[i] = "Yellow"; break;
                         }
                     }
+                    //if the selected three match the pattern given, process score and adjust board as needed
                     if (stringCompPatt[0]==patternArray[0] && stringCompPatt[1] == patternArray[1] && stringCompPatt[2] == patternArray[2])
                     {
+                        //needs more checking to ensure same row or column for matches
                         comboBox.Text = "MATCHED MOTHERFUCKER!!!!!";
                         score++;
                         scoreBox.Text = "Score: "+score;
 
-                        for (int s=0;s<selectedSquares.Length;s++)
-                        {
-                            selectedSquares[s].toggleSelected();
-                            selectedSquares[s].randomizeColor();
-                        }
+                        //reset all selected values AND inbetween squares (to do)
+                        gameCntr.processMatch(selectedSquares);
+                        
                         
 
 
                         updatePattern();
                     }
-                    else
-                    {
+                    else 
+                    {//the match wasn't corrent
                         comboBox.Text = "No match, you suck";
                         gameCntr.deToggleAll();
                     }

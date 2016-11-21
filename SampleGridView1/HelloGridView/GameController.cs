@@ -144,10 +144,7 @@ namespace HelloGridView
 
         public bool processMatch(ColorSquare[] selectedSquares)
         {
-            //pass array of ColorSquares
-            //do a horizontal compare
-            //do a vertical compare
-            //if either match; go through col / row and randomize() each
+            //can tell if pattern is properly matched 
             bool matchResult = false;
             if ( ( sameX(selectedSquares[0], selectedSquares[1]) && sameX(selectedSquares[1], selectedSquares[2]) )
                 || (sameY(selectedSquares[0], selectedSquares[1]) && sameY(selectedSquares[1], selectedSquares[2]) )

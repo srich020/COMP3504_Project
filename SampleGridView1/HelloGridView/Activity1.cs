@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Widget;
 using Java.Util;
 using Android.Systems;
+using Java.Lang;
 
 namespace HelloGridView
 {
@@ -50,6 +51,23 @@ namespace HelloGridView
             nextPattern.Text = "Next Pattern: " + patternArray[0] + ", " + patternArray[1] + ", " + patternArray[2];
         }
 
+        private bool isSelected(ColorSquare square)
+        {
+            bool isSelect = false;
+                for (int i = 0; i < selectedSquares.Length; i++)
+                {
+                if (selectedSquares[i] != null && selectedSquares[i].xLoc == square.xLoc && selectedSquares[i].yLoc == square.xLoc)
+                    {
+                    
+                        isSelect = true;
+                        comboBox.Text = "Already Selected!";
+                    }
+            }
+            comboBox.Text = "Boolean activated";
+            return isSelect;
+        }
+
+
         private void Gridview_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
 
@@ -62,11 +80,17 @@ namespace HelloGridView
             
             if (count < 3)
             {
-                int selNum = selectedSquare.colorNum;
-                selectedValues[count] = selNum;
-                selectedSquares[count] = selectedSquare;
-                count++;
-
+                if (isSelected(selectedSquare))
+                {
+                    comboBox.Text = "Not correct";
+                }
+                else
+                {
+                    int selNum = selectedSquare.colorNum;
+                    selectedValues[count] = selNum;
+                    selectedSquares[count] = selectedSquare;
+                    count++;
+                }
                 if (count == 3)
                 {//if three selected total, process score
                     
@@ -88,13 +112,11 @@ namespace HelloGridView
                         comboBox.Text = "MATCHED MOTHERFUCKER!!!!!";
                         score++;
                         scoreBox.Text = "Score: "+score;
-
                         //reset all selected values AND inbetween squares (to do)
                         gameCntr.processMatch(selectedSquares);
-                        
-                        
-
-
+                        selectedSquares = new ColorSquare[3];
+                        selectedValues = new int[3];
+                        count = 0;
                         updatePattern();
                     }
                     else 

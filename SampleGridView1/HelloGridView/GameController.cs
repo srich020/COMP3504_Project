@@ -126,14 +126,13 @@ namespace HelloGridView
 
             for (int s = 0; s < selectedSquares.Length; s++)
             {
-
                 selectedSquares[s].toggleSelected();
                 selectedSquares[s].randomizeColor();
             }
             
             //----------------------NONE OF THIS WORKS YET---------------------------------------
             //horizontal match check and process
-            if (selectedSquares[0].xLoc== selectedSquares[1].xLoc)
+            if (selectedSquares[0].xLoc == selectedSquares[1].xLoc)
             {//first 2 squaures are on the same row
                 if (selectedSquares[0].xLoc > selectedSquares[1].xLoc)
                 {//first is to the right of second
@@ -151,6 +150,8 @@ namespace HelloGridView
             }
 
         }
+        
+
 
     }
 }

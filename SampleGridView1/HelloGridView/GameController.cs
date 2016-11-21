@@ -18,6 +18,7 @@ namespace HelloGridView
         private ColorSquare[,] board;
         private int[] colors={Resource.Drawable.Blue_static, Resource.Drawable.Green_static,
                             Resource.Drawable.Red_static, Resource.Drawable.Yellow_static };
+        public int score { get; set; }
         //private Activity1 gameRef = new Activity1();
 
         public static GameController getInstance()
@@ -153,6 +154,7 @@ namespace HelloGridView
                 || (sameY(selectedSquares[0], selectedSquares[1]) && sameX(selectedSquares[1], selectedSquares[2]))
                 )
             {
+                score++;
                 for (int s = 0; s < selectedSquares.Length; s++)
                 {
                     selectedSquares[s].toggleSelected();
@@ -168,6 +170,8 @@ namespace HelloGridView
 
         }
         
+ 
+
         //takes 2 ColorSquare objects. will randomize all elements in between
         private void randomizeBetween(ColorSquare square1, ColorSquare square2)
         {
@@ -180,6 +184,7 @@ namespace HelloGridView
                     for (int i=0;i<diff; i++)
                     {
                         cntr.get(square1.xLoc, start--).randomizeColor();
+                        score++;
                     }
                 }
                 if (square1.yLoc < square2.yLoc) //1 higher up the grid than 2
@@ -189,6 +194,7 @@ namespace HelloGridView
                     for (int i = 0; i < diff; i++)
                     {
                         cntr.get(square2.xLoc, start--).randomizeColor();
+                        score++;
                     }
                 }
             }
@@ -202,6 +208,7 @@ namespace HelloGridView
                     for (int i = 0; i < diff; i++)
                     {
                         cntr.get(start--, square1.yLoc).randomizeColor();
+                        score++;
                     }
                 }
                 if (square1.xLoc < square2.xLoc) //1 higher up the grid than 2
@@ -211,6 +218,7 @@ namespace HelloGridView
                     for (int i = 0; i < diff; i++)
                     {
                         cntr.get(start--, square2.yLoc).randomizeColor();
+                        score++;
                     }
                 }
             }

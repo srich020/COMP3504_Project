@@ -42,6 +42,7 @@ namespace HelloGridView
             //on click effect
             gridview.ItemClick += Gridview_ItemClick;
             gameCntr.loadBoard();
+            gameCntr.score = 0;
             score = 0;
         }
 
@@ -51,11 +52,7 @@ namespace HelloGridView
             nextPattern.Text = "Next Pattern: " + patternArray[0] + ", " + patternArray[1] + ", " + patternArray[2];
         }
 
-        public void incrementScore()
-        {
-            score++;
-            scoreBox.Text = "Score: " + score;
-        }
+   
 
         //Doesnt work properly yet
         private bool isSelected(ColorSquare square)
@@ -64,6 +61,7 @@ namespace HelloGridView
                 for (int i = 0; i < selectedSquares.Length; i++)
                 {
                 //comboBox.Text = "In loop";
+                //selectedSquares[0].selected == true;
                 if (selectedSquares[i] != null && selectedSquares[i].xLoc == square.xLoc && selectedSquares[i].yLoc == square.xLoc)
                     {
                     scoreBox.Text = "Already Selected!";
@@ -88,17 +86,18 @@ namespace HelloGridView
             
             if (count < 3)
             {
-                
 
-               /* if (isSelected(selectedSquare))
-                {
-                    scoreBox.Text = "Not correct";
-                }*/
                 
                 int selNum = selectedSquare.colorNum;
                 selectedValues[count] = selNum;
                 selectedSquares[count] = selectedSquare;
                 count++;
+
+                /*if (!selectedSquare.selected)
+                {
+                    
+                }*/
+
                 if (count == 3) //AND add row checking logic
                 {//if three selected total, process score
                     
@@ -118,8 +117,9 @@ namespace HelloGridView
                     {
                         //needs more checking to ensure same row or column for matches
                         comboBox.Text = "MATCHED MOTHERFUCKER!!!!!";
+
                         score++;
-                        scoreBox.Text = "Score: "+score;
+                        scoreBox.Text = "Score: "+gameCntr.score;
                         //reset all selected values AND inbetween squares (to do)
                         
                         selectedSquares = new ColorSquare[3];

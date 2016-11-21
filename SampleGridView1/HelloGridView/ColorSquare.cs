@@ -24,6 +24,7 @@ namespace HelloGridView
                             Resource.Drawable.Red_static, Resource.Drawable.Yellow_static };
         int[] scolors = {Resource.Drawable.Blue_selected, Resource.Drawable.Green_selected,
                             Resource.Drawable.Red_selected, Resource.Drawable.Yellow_selected };
+        Random rng;
 
         public ColorSquare(int cVal, int csVal, int xLo, int yLo, int cNum)
         {
@@ -33,7 +34,7 @@ namespace HelloGridView
             xLoc = xLo;
             yLoc = yLo;
             selected = false;
-            
+            rng = new Random();
         }
 
         public int showColor()
@@ -49,8 +50,9 @@ namespace HelloGridView
 
         public void randomizeColor()
         {
-            Random rng = new Random();
-            int newVal = rng.Next(colors.Length);
+            
+            int newVal = rng.Next(4);
+
             while (newVal == colorNum)
             {
                 newVal = rng.Next(colors.Length);

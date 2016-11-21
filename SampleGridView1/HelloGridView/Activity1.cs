@@ -51,6 +51,12 @@ namespace HelloGridView
             nextPattern.Text = "Next Pattern: " + patternArray[0] + ", " + patternArray[1] + ", " + patternArray[2];
         }
 
+        public void incrementScore()
+        {
+            score++;
+            scoreBox.Text = "Score: " + score;
+        }
+
         //Doesnt work properly yet
         private bool isSelected(ColorSquare square)
         {

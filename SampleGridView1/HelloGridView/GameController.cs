@@ -18,6 +18,7 @@ namespace HelloGridView
         private ColorSquare[,] board;
         private int[] colors={Resource.Drawable.Blue_static, Resource.Drawable.Green_static,
                             Resource.Drawable.Red_static, Resource.Drawable.Yellow_static };
+        //private Activity1 gameRef = new Activity1();
 
         public static GameController getInstance()
         {
@@ -172,21 +173,46 @@ namespace HelloGridView
         {
             if (sameX(square1, square2)) //same Column
             {
-                if (square1.yLoc > square2.yLoc) //1 is to the right of 2 in row
+                if (square1.yLoc > square2.yLoc) //1 further down the grid than 2
                 {
-                    int diff = square1.yLoc - square2.yLoc;
+                    int diff = square1.yLoc - square2.yLoc; //-1 to avoid outofbounds
                     int start = square1.yLoc;
                     for (int i=0;i<diff; i++)
                     {
-                        cntr.get(square1.xLoc, start - 1).randomizeColor();
-                        //cntr.get(0, 0).randomizeColor();
+                        cntr.get(square1.xLoc, start--).randomizeColor();
+                    }
+                }
+                if (square1.yLoc < square2.yLoc) //1 higher up the grid than 2
+                {
+                    int diff = square2.yLoc - square1.yLoc; //-1 to avoid outofbounds
+                    int start = square2.yLoc;
+                    for (int i = 0; i < diff; i++)
+                    {
+                        cntr.get(square2.xLoc, start--).randomizeColor();
                     }
                 }
             }
 
             if (sameY(square1, square2)) //same row
             {
-
+                if (square1.xLoc > square2.xLoc) //1 further down the grid than 2
+                {
+                    int diff = square1.xLoc - square2.xLoc; //-1 to avoid outofbounds
+                    int start = square1.xLoc;
+                    for (int i = 0; i < diff; i++)
+                    {
+                        cntr.get(start--, square1.yLoc).randomizeColor();
+                    }
+                }
+                if (square1.xLoc < square2.xLoc) //1 higher up the grid than 2
+                {
+                    int diff = square2.xLoc - square1.xLoc; //-1 to avoid outofbounds
+                    int start = square2.xLoc;
+                    for (int i = 0; i < diff; i++)
+                    {
+                        cntr.get(start--, square2.yLoc).randomizeColor();
+                    }
+                }
             }
         }
 

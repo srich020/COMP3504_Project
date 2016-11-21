@@ -157,6 +157,8 @@ namespace HelloGridView
                     selectedSquares[s].toggleSelected();
                     selectedSquares[s].randomizeColor();
                 }
+                randomizeBetween(selectedSquares[0], selectedSquares[1]);
+                randomizeBetween(selectedSquares[1], selectedSquares[2]);
                 matchResult = true;
             }
 
@@ -165,7 +167,28 @@ namespace HelloGridView
 
         }
         
+        //takes 2 ColorSquare objects. will randomize all elements in between
+        private void randomizeBetween(ColorSquare square1, ColorSquare square2)
+        {
+            if (sameX(square1, square2)) //same Column
+            {
+                if (square1.yLoc > square2.yLoc) //1 is to the right of 2 in row
+                {
+                    int diff = square1.yLoc - square2.yLoc;
+                    int start = square1.yLoc;
+                    for (int i=0;i<diff; i++)
+                    {
+                        cntr.get(square1.xLoc, start - 1).randomizeColor();
+                        //cntr.get(0, 0).randomizeColor();
+                    }
+                }
+            }
 
+            if (sameY(square1, square2)) //same row
+            {
+
+            }
+        }
 
     }
 }

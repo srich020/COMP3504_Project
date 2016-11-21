@@ -51,19 +51,21 @@ namespace HelloGridView
             nextPattern.Text = "Next Pattern: " + patternArray[0] + ", " + patternArray[1] + ", " + patternArray[2];
         }
 
+        //Doesnt work properly yet
         private bool isSelected(ColorSquare square)
         {
             bool isSelect = false;
                 for (int i = 0; i < selectedSquares.Length; i++)
                 {
+                //comboBox.Text = "In loop";
                 if (selectedSquares[i] != null && selectedSquares[i].xLoc == square.xLoc && selectedSquares[i].yLoc == square.xLoc)
                     {
-                    
-                        isSelect = true;
-                        comboBox.Text = "Already Selected!";
+                    scoreBox.Text = "Already Selected!";
+                    isSelect = true;
+                        
                     }
-            }
-            comboBox.Text = "Boolean activated";
+                }
+            
             return isSelect;
         }
 
@@ -75,23 +77,23 @@ namespace HelloGridView
             gridAdapter.NotifyDataSetChanged();
             ColorSquare selectedSquare = gameCntr.get(e.Position);
             
-            string[] stringCompPatt = new string[3];
+            string[] stringCompPatt = new string[3]; //only used when matching 3 selected. converts values to strings for comparison
             //score and match processing
             
             if (count < 3)
             {
-                if (isSelected(selectedSquare))
+                
+
+               /* if (isSelected(selectedSquare))
                 {
-                    comboBox.Text = "Not correct";
-                }
-                else
-                {
-                    int selNum = selectedSquare.colorNum;
-                    selectedValues[count] = selNum;
-                    selectedSquares[count] = selectedSquare;
-                    count++;
-                }
-                if (count == 3)
+                    scoreBox.Text = "Not correct";
+                }*/
+                
+                int selNum = selectedSquare.colorNum;
+                selectedValues[count] = selNum;
+                selectedSquares[count] = selectedSquare;
+                count++;
+                if (count == 3) //AND add row checking logic
                 {//if three selected total, process score
                     
                     //create a string list to compare from the selected values
@@ -106,14 +108,14 @@ namespace HelloGridView
                         }
                     }
                     //if the selected three match the pattern given, process score and adjust board as needed
-                    if (stringCompPatt[0]==patternArray[0] && stringCompPatt[1] == patternArray[1] && stringCompPatt[2] == patternArray[2])
+                    if (stringCompPatt[0]==patternArray[0] && stringCompPatt[1] == patternArray[1] && stringCompPatt[2] == patternArray[2] && gameCntr.processMatch(selectedSquares))
                     {
                         //needs more checking to ensure same row or column for matches
                         comboBox.Text = "MATCHED MOTHERFUCKER!!!!!";
                         score++;
                         scoreBox.Text = "Score: "+score;
                         //reset all selected values AND inbetween squares (to do)
-                        gameCntr.processMatch(selectedSquares);
+                        
                         selectedSquares = new ColorSquare[3];
                         selectedValues = new int[3];
                         count = 0;

@@ -5,6 +5,7 @@ using Android.Widget;
 using Java.Util;
 using Android.Systems;
 using Java.Lang;
+using System.Timers;
 
 namespace HelloGridView
 {
@@ -23,6 +24,9 @@ namespace HelloGridView
         private ColorSquare[] selectedSquares = new ColorSquare[3];
         private GameController gameCntr = GameController.getInstance();
         private int score;
+        private int sec = 0;
+        private System.Timers.Timer timer;
+        private TextView timerText;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -32,6 +36,15 @@ namespace HelloGridView
 
             //initializes the gridview. Set the adapter to the customer ImageAdapter
             gridview = FindViewById<GridView>(Resource.Id.gridview);
+            //timer things
+            timerText = FindViewById<TextView>(Resource.Id.timerText);
+            timer = new System.Timers.Timer();
+            timer.Interval = 1000; //1 s interval
+            timer.Enabled = true;
+            timer.Elapsed += Timer_Elapsed;
+            timer.Start();
+            //end timer things
+
 
             gridAdapter = new ImageAdapter(this);
             gridview.Adapter = gridAdapter;
@@ -44,6 +57,16 @@ namespace HelloGridView
             gameCntr.loadBoard();
             gameCntr.score = 0;
             score = 0;
+        }
+
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            string printSec;
+            sec++;
+            int mSec = 30 - sec;
+            printSec = (mSec < 10) ? "0" + mSec.ToString() : mSec.ToString();
+            RunOnUiThread(() => { timerText.Text = "0:" + printSec; });
+            if (sec == 30) { Finish(); }//what to do when time elapses
         }
 
         private void updatePattern()

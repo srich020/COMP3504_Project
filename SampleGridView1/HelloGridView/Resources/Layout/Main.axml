@@ -14,6 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/scoreBox" />
+      <TextView
+        android:text="0:30"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/timerText"/>
     <TextView
         android:text="Combo Placeholder"
         android:layout_width="match_parent"

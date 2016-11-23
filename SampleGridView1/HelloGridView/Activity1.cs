@@ -66,7 +66,9 @@ namespace HelloGridView
             int mSec = 30 - sec;
             printSec = (mSec < 10) ? "0" + mSec.ToString() : mSec.ToString();
             RunOnUiThread(() => { timerText.Text = "0:" + printSec; });
-            if (sec == 30) { Finish(); }//what to do when time elapses
+            if (sec == 30) {
+
+            Finish(); }//what to do when time elapses
         }
 
         private void updatePattern()

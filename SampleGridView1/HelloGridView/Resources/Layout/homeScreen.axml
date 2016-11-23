@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <TextView
+        android:id="@+id/label"
+        android:textSize="10pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name: " />
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:background="@android:drawable/editbox_background"
+        android:layout_toRightOf="@id/label" />
+    <Button
+        android:id="@+id/addStudentButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameEditText"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dip"
+        android:text="Add Student" />
+    <ListView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addStudentButton"
+        android:id="@+id/studentListView" />
+</RelativeLayout>

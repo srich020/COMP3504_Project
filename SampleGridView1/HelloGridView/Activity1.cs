@@ -63,10 +63,10 @@ namespace HelloGridView
         {
             string printSec;
             sec++;
-            int mSec = 10 - sec;
+            int mSec = 30 - sec;
             printSec = (mSec < 10) ? "0" + mSec.ToString() : mSec.ToString();
             RunOnUiThread(() => { timerText.Text = "0:" + printSec; });
-            if (sec == 10) {
+            if (sec == 30) {
             Intent startScore = new Intent(this, typeof(HelloGridView.EnterHighScore));
             startScore.PutExtra("score",String.ValueOf(gameCntr.score));
             StartActivity(startScore);

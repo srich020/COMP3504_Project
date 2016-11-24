@@ -59,7 +59,7 @@ namespace HelloGridView
          =====================================================================*/
         private void setUpTables()
         {
-            dbConnection.CreateTable<Student>(); // example table being created
+            dbConnection.CreateTable<Score>(); // example table being created
         }
         /*=====================================================================
          * Initial connection to the database
@@ -76,37 +76,37 @@ namespace HelloGridView
           setUpTables(); // this happens very time.
         }
 
-        public void addStudent(Student info)
+        public void addScore(Score info)
         {
             dbConnection.Insert(info);
         }
 
-        public Student getStudentByID(int id)
+        public Score getScoreByID(int id)
         {
-            return dbConnection.Get<Student>(id);
+            return dbConnection.Get<Score>(id);
         }
 
-        public void deleteStudentByID(int id)
+        public void deleteScoreByID(int id)
         {
-            dbConnection.Delete<Student>(id);
+            dbConnection.Delete<Score>(id);
         }
 
-        public void updateStudentInfo(Student info)
+        public void updateScoreInfo(Score info)
         {
             dbConnection.Update(info);
         }
 
-        public List<Student> getAllStudents()
+        public List<Score> getAllScores()
         {
-            //gets all elements in the Student table and packages it into a List
-            return new List<Student>(dbConnection.Table<Student>());
+            //gets all elements in the Score table and packages it into a List
+            return new List<Score>(dbConnection.Table<Score>());
         }
 
 
-        public List<Student> getAllStudentsOrdered()
+        public List<Score> getAllScoresOrdered()
         {
-            //gets all elements in the Student table and packages it into a List
-            return new List<Student>(dbConnection.Table<Student>().OrderBy(st => st.name));
+            //gets all elements in the Score table and packages it into a List
+            return new List<Score>(dbConnection.Table<Score>().OrderByDescending(st => st.score));
         }
     }
 }

@@ -63,11 +63,13 @@ namespace HelloGridView
         {
             string printSec;
             sec++;
-            int mSec = 30 - sec;
+            int mSec = 10 - sec;
             printSec = (mSec < 10) ? "0" + mSec.ToString() : mSec.ToString();
             RunOnUiThread(() => { timerText.Text = "0:" + printSec; });
-            if (sec == 30) {
-
+            if (sec == 10) {
+            Intent startScore = new Intent(this, typeof(HelloGridView.EnterHighScore));
+            startScore.PutExtra("score",String.ValueOf(gameCntr.score));
+            StartActivity(startScore);
             Finish(); }//what to do when time elapses
         }
 

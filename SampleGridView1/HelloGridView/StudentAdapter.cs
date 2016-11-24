@@ -12,12 +12,12 @@ using Android.Widget;
 
 namespace HelloGridView
 {
-    public class StudentAdapter : BaseAdapter<Student>
+    public class ScoreAdapter : BaseAdapter<Score>
     {
         private LocalDataAccessLayer data = LocalDataAccessLayer.getInstance();
         private Activity context;
 
-        public StudentAdapter(Activity context)
+        public ScoreAdapter(Activity context)
         {
             this.context = context;
         }
@@ -26,15 +26,15 @@ namespace HelloGridView
         {
             get
             {
-                return data.getAllStudents().Count;
+                return data.getAllScores().Count;
             }
         }
 
-        public override Student this[int position]
+        public override Score this[int position]
         {
             get
             {
-                return data.getAllStudentsOrdered().ElementAt<Student>(position);
+                return data.getAllScoresOrdered().ElementAt<Score>(position);
             }
         }
 
@@ -46,13 +46,14 @@ namespace HelloGridView
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            Student st = this[position];
+            Score st = this[position];
 
             if (convertView == null)
                 convertView = context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1,null);
 
             TextView txt = convertView.FindViewById<TextView>(Android.Resource.Id.Text1);
-            txt.Text = ""+st;//this will call the toString of the Student class
+            txt.Text = ""+st;//this will call the toString of the Score class
+            txt.Text += "   " + st.name;
             return convertView;
         }
     }

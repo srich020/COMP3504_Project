@@ -16,7 +16,6 @@ namespace HelloGridView
         public string put = "";
         public TextView nextPattern = null;
         private TextView scoreBox;
-        private TextView comboBox;
         private GridView gridview;
         private ImageAdapter gridAdapter;
         private string[] patternArray;
@@ -50,7 +49,6 @@ namespace HelloGridView
             gridview.Adapter = gridAdapter;
             nextPattern = FindViewById<TextView>(HelloGridView.Resource.Id.NextPattern);
             scoreBox = FindViewById<TextView>(HelloGridView.Resource.Id.scoreBox);
-            comboBox = FindViewById<TextView>(HelloGridView.Resource.Id.comboBox);
             updatePattern();
             //on click effect
             gridview.ItemClick += Gridview_ItemClick;
@@ -87,8 +85,6 @@ namespace HelloGridView
             bool isSelect = false;
                 for (int i = 0; i < selectedSquares.Length; i++)
                 {
-                //comboBox.Text = "In loop";
-                //selectedSquares[0].selected == true;
                 if (selectedSquares[i] != null && selectedSquares[i].xLoc == square.xLoc && selectedSquares[i].yLoc == square.xLoc)
                     {
                     scoreBox.Text = "Already Selected!";
@@ -103,7 +99,6 @@ namespace HelloGridView
 
         private void Gridview_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
         {
-
             gameCntr.updateWorldState(e.Position);
             gridAdapter.NotifyDataSetChanged();
             ColorSquare selectedSquare = gameCntr.get(e.Position);
@@ -143,7 +138,6 @@ namespace HelloGridView
                     if (stringCompPatt[0]==patternArray[0] && stringCompPatt[1] == patternArray[1] && stringCompPatt[2] == patternArray[2] && gameCntr.processMatch(selectedSquares))
                     {
                         //needs more checking to ensure same row or column for matches
-                        comboBox.Text = "MATCHED MOTHERFUCKER!!!!!";
 
                         score++;
                         scoreBox.Text = "Score: "+gameCntr.score;
@@ -156,7 +150,7 @@ namespace HelloGridView
                     }
                     else 
                     {//the match wasn't corrent
-                        comboBox.Text = "No match, you suck";
+                       
                         gameCntr.deToggleAll();
                     }
                     

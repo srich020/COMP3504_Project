@@ -21,11 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/timerText" />
-    <TextView
-        android:text="Combo Placeholder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/comboBox" />
     <GridView
         android:id="@+id/gridview"
         android:layout_width="fill_parent"

@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Android;
 
-namespace MainMenu
+namespace HelloGridView
 {
     [Activity(Label = "MainMenu", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainMenu : Activity
@@ -19,6 +19,7 @@ namespace MainMenu
         public Button PlayButton;
         public Button HighScoresButton;
         public Button OptionsButton;
+        public Button instructionsButton;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -28,6 +29,13 @@ namespace MainMenu
             PlayButton.Click += PlayButton_Click;
             OptionsButton.Click += OptionsButton_Click;
             HighScoresButton.Click += HighScoresButton_Click;
+            instructionsButton.Click += InstructionsButton_Click;
+        }
+
+        private void InstructionsButton_Click(object sender, EventArgs e)
+        {
+            var intent = new Intent(this, typeof(instructions));
+            StartActivity(intent);
         }
 
         private void HighScoresButton_Click(object sender, EventArgs e)
@@ -51,6 +59,7 @@ namespace MainMenu
             PlayButton = FindViewById<Button>(HelloGridView.Resource.Id.playButton);
             HighScoresButton = FindViewById<Button>(HelloGridView.Resource.Id.scoreButton);
             OptionsButton = FindViewById<Button>(HelloGridView.Resource.Id.optionsButton);
+            instructionsButton = FindViewById<Button>(Resource.Id.instructionsButton);
         }
     }
 }

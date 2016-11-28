@@ -14,13 +14,14 @@ using SQLite;
 
 namespace HelloGridView
 {
+    
     public class Score
     {
         [PrimaryKey,AutoIncrement]
         public int ID { get; set; } // auto set when isnerted to the db
         public int score { get; set; }
         public string name { get; set; }
-
+       
         public Score() { } // must have a default constructor to use SQLite methods 
 
         public Score(int score,string name)

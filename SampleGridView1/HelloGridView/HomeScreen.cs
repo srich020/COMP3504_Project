@@ -10,13 +10,13 @@ using Android.Views.InputMethods;
 
 namespace HelloGridView
 {
-    [Activity(Label = "Data Example", Icon = "@drawable/icon")] 
+    [Activity(Label = "HIGH SCORES", Icon = "@drawable/icon")] 
     public class HomeScreen : Activity
     {
         private LocalDataAccessLayer data = LocalDataAccessLayer.getInstance();
         private ListView studentListView;
         private ScoreAdapter stAdapter; // data adapter for stored students
-
+        private Button MainMenu;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -47,6 +47,14 @@ namespace HelloGridView
         private void loadViews()
         {
             studentListView = FindViewById<ListView>(Resource.Id.studentListView);
+            MainMenu = FindViewById<Button>(Resource.Id.HSmenuButton);
+            MainMenu.Click += MenuButton_Click;
+        }
+
+        private void MenuButton_Click(object sender, EventArgs e)
+        {
+            var intent = new Intent(this, typeof(MainMenu));
+            StartActivity(intent);
         }
 
         private void connectActions()

@@ -77,6 +77,7 @@
     <Compile Include="EnterHighScore.cs" />
     <Compile Include="GameController.cs" />
     <Compile Include="HomeScreen.cs" />
+    <Compile Include="instructions.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="ColorSquare.cs" />
     <Compile Include="ImageAdapter.cs" />
@@ -105,6 +106,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\Layout\EnterName.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\Layout\instructionsLayout.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -148,6 +152,9 @@
       <Visible>False</Visible>
       <Version>1.0.11</Version>
     </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\HotToPlay_1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\SQLitePCL.raw_basic.0.8.6\build\MonoAndroid\SQLitePCL.raw_basic.targets" Condition="Exists('..\packages\SQLitePCL.raw_basic.0.8.6\build\MonoAndroid\SQLitePCL.raw_basic.targets')" />

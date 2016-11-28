@@ -9,7 +9,7 @@ using System.Timers;
 
 namespace HelloGridView
 {
-    [Activity(Label = "HelloGridView", Icon = "@drawable/icon")]
+    [Activity(Label = "30 Seconds of Color!", Icon = "@drawable/icon")]
     public class Activity1 : Activity
     {
         private int count = 0;
@@ -17,6 +17,7 @@ namespace HelloGridView
         public TextView nextPattern = null;
         private TextView scoreBox;
         private GridView gridview;
+        private TextView matchBox;
         private ImageAdapter gridAdapter;
         private string[] patternArray;
         private int[] selectedValues = new int[3];
@@ -49,6 +50,7 @@ namespace HelloGridView
             gridview.Adapter = gridAdapter;
             nextPattern = FindViewById<TextView>(HelloGridView.Resource.Id.NextPattern);
             scoreBox = FindViewById<TextView>(HelloGridView.Resource.Id.scoreBox);
+            matchBox = FindViewById<TextView>(HelloGridView.Resource.Id.matchBox);
             updatePattern();
             //on click effect
             gridview.ItemClick += Gridview_ItemClick;
@@ -137,9 +139,9 @@ namespace HelloGridView
                     //if the selected three match the pattern given, process score and adjust board as needed
                     if (stringCompPatt[0]==patternArray[0] && stringCompPatt[1] == patternArray[1] && stringCompPatt[2] == patternArray[2] && gameCntr.processMatch(selectedSquares))
                     {
-                        //needs more checking to ensure same row or column for matches
 
-                        score++;
+
+                        matchBox.Text = "MATCH!";
                         scoreBox.Text = "Score: "+gameCntr.score;
                         //reset all selected values AND inbetween squares (to do)
                         
@@ -152,6 +154,7 @@ namespace HelloGridView
                     {//the match wasn't corrent
                        
                         gameCntr.deToggleAll();
+                        matchBox.Text = "No match, try again!";
                     }
                     
                     count = 0;

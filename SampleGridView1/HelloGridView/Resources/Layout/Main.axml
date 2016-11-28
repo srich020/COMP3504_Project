@@ -13,10 +13,18 @@
         android:text="Score: 0"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="25dp"
         android:id="@+id/scoreBox" />
     <TextView
-        android:text="0:30"
+        android:text="GO!"
         android:textSize="25dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/matchBox" />
+    <TextView
+        android:text="0:30"
+        android:textSize="35dp"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

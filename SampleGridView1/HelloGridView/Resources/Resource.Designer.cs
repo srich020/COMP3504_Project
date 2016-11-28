@@ -234,7 +234,31 @@ namespace HelloGridView
 		{
 			
 			// aapt resource value: 0x7f040000
-			public const int lightisgreen = 2130968576;
+			public const int cartoonBingLow = 2130968576;
+			
+			// aapt resource value: 0x7f040001
+			public const int finsError1 = 2130968577;
+			
+			// aapt resource value: 0x7f040002
+			public const int finsError2 = 2130968578;
+			
+			// aapt resource value: 0x7f040003
+			public const int gameSoundIncorrect = 2130968579;
+			
+			// aapt resource value: 0x7f040004
+			public const int lightisgreen = 2130968580;
+			
+			// aapt resource value: 0x7f040005
+			public const int menuSelectionClick = 2130968581;
+			
+			// aapt resource value: 0x7f040006
+			public const int popSound = 2130968582;
+			
+			// aapt resource value: 0x7f040007
+			public const int shortBuzzer = 2130968583;
+			
+			// aapt resource value: 0x7f040008
+			public const int success = 2130968584;
 			
 			static Raw()
 			{

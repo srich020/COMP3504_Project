@@ -160,28 +160,28 @@
     <AndroidResource Include="Resources\Raw\lightisgreen.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Raw\popSound.wav" />
+    <AndroidResource Include="Resources\Raw\cartoonBingLow.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Raw\SUCCESS.wav" />
+    <AndroidResource Include="Resources\Raw\finsError1.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Raw\2note-fail.wav" />
+    <AndroidResource Include="Resources\Raw\finsError2.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Raw\fail_noise2.wav" />
+    <AndroidResource Include="Resources\Raw\gameSoundIncorrect.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Raw\fail_noise1.wav" />
+    <AndroidResource Include="Resources\Raw\menuSelectionClick.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Raw\fail-bing-low.wav" />
+    <AndroidResource Include="Resources\Raw\popSound.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Raw\tiny-menu-selection-click.wav" />
+    <AndroidResource Include="Resources\Raw\shortBuzzer.mp3" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Raw\short-buzzer.wav" />
+    <AndroidResource Include="Resources\Raw\success.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\SQLitePCL.raw_basic.0.8.6\build\MonoAndroid\SQLitePCL.raw_basic.targets" Condition="Exists('..\packages\SQLitePCL.raw_basic.0.8.6\build\MonoAndroid\SQLitePCL.raw_basic.targets')" />

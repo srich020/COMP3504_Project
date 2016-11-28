@@ -30,6 +30,7 @@ namespace HelloGridView
         private TextView timerText;
         public MediaPlayer player;
         public MediaPlayer MatchSound;
+        public MediaPlayer failMatchSound;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -47,8 +48,11 @@ namespace HelloGridView
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
             //end timer things
+
+            //music and sound
             player = MediaPlayer.Create(this, Resource.Raw.lightisgreen);
-            //MatchSound = MediaPlayer.Create(this, Resource.Raw);
+            MatchSound = MediaPlayer.Create(this, Resource.Raw.success);
+            failMatchSound = MediaPlayer.Create(this, Resource.Raw.gameSoundIncorrect);
             player.Start();
 
             gridAdapter = new ImageAdapter(this);
@@ -147,7 +151,7 @@ namespace HelloGridView
                     if (stringCompPatt[0]==patternArray[0] && stringCompPatt[1] == patternArray[1] && stringCompPatt[2] == patternArray[2] && gameCntr.processMatch(selectedSquares))
                     {
 
-
+                        MatchSound.Start();
                         matchBox.Text = "MATCH!";
                         scoreBox.Text = "Score: "+gameCntr.score;
                         //reset all selected values AND inbetween squares (to do)
@@ -159,7 +163,7 @@ namespace HelloGridView
                     }
                     else 
                     {//the match wasn't corrent
-                       
+                        failMatchSound.Start();
                         gameCntr.deToggleAll();
                         matchBox.Text = "No match, try again!";
                     }

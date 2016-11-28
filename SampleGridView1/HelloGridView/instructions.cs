@@ -15,11 +15,20 @@ namespace HelloGridView
     [Activity(Label = "Instructions")]
     public class instructions : Activity
     {
+        private Button mainMenu;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.instructionsLayout);
+            mainMenu = FindViewById<Button>(Resource.Id.instructionsMenu);
+            mainMenu.Click += mainMenu_Click;
             // Create your application here
+        }
+
+        private void mainMenu_Click(object sender, EventArgs e)
+        {
+            var intent = new Intent(this, typeof(MainMenu));
+            StartActivity(intent);
         }
     }
 }

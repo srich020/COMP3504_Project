@@ -6,6 +6,7 @@ using Java.Util;
 using Android.Systems;
 using Java.Lang;
 using System.Timers;
+using Android.Media;
 
 namespace HelloGridView
 {
@@ -27,6 +28,8 @@ namespace HelloGridView
         private int sec = 0;
         private System.Timers.Timer timer;
         private TextView timerText;
+        public MediaPlayer player;
+        public MediaPlayer MatchSound;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -44,7 +47,9 @@ namespace HelloGridView
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
             //end timer things
-
+            player = MediaPlayer.Create(this, Resource.Raw.lightisgreen);
+            //MatchSound = MediaPlayer.Create(this, Resource.Raw);
+            player.Start();
 
             gridAdapter = new ImageAdapter(this);
             gridview.Adapter = gridAdapter;
@@ -67,10 +72,12 @@ namespace HelloGridView
             printSec = (mSec < 10) ? "0" + mSec.ToString() : mSec.ToString();
             RunOnUiThread(() => { timerText.Text = "0:" + printSec; });
             if (sec == 30) {
-            Intent startScore = new Intent(this, typeof(HelloGridView.EnterHighScore));
-            startScore.PutExtra("score",String.ValueOf(gameCntr.score));
-            StartActivity(startScore);
-            Finish(); }//what to do when time elapses
+                Intent startScore = new Intent(this, typeof(HelloGridView.EnterHighScore));
+                startScore.PutExtra("score",String.ValueOf(gameCntr.score));
+                StartActivity(startScore);
+                player.Stop();
+                Finish();
+            }//what to do when time elapses
         }
 
         private void updatePattern()

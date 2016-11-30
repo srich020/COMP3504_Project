@@ -5,12 +5,19 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:paddingLeft="60dp"
-    android:paddingRight="60dp">
+    android:paddingRight="60dp"
+    android:background="@drawable/ColorBG1">
+    <ImageView
+        android:src="@drawable/LogoPull-nobg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/logoImage" />
     <TextView
         android:text="30 Seconds of Color!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
+        android:textColor="#FFFFFF"
         android:textSize="25sp"
         android:layout_gravity="center"
         android:id="@+id/MMtitle" />
@@ -29,9 +36,9 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/optionsButton" />
-  <Button
-    android:text="How to play"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/instructionsButton" />
+    <Button
+        android:text="How to play"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/instructionsButton" />
 </LinearLayout>

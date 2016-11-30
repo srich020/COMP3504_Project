@@ -34,6 +34,9 @@ namespace HelloGridView
         public MediaPlayer failMatchSound;
         public MediaPlayer timerAlmostDoneSound;
         public MediaPlayer endOfGameSound;
+        private TextView combo1;
+        private TextView combo2;
+        private TextView combo3;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -62,7 +65,9 @@ namespace HelloGridView
 
             gridAdapter = new ImageAdapter(this);
             gridview.Adapter = gridAdapter;
-            nextPattern = FindViewById<TextView>(HelloGridView.Resource.Id.NextPattern);
+            combo1 = FindViewById<TextView>(HelloGridView.Resource.Id.combo1);
+            combo2 = FindViewById<TextView>(HelloGridView.Resource.Id.combo2);
+            combo3 = FindViewById<TextView>(HelloGridView.Resource.Id.combo3);
             scoreBox = FindViewById<TextView>(HelloGridView.Resource.Id.scoreBox);
             matchBox = FindViewById<TextView>(HelloGridView.Resource.Id.matchBox);
             updatePattern();
@@ -73,6 +78,7 @@ namespace HelloGridView
             score = 0;
             MatchSound.Start();
         }
+        
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
@@ -117,7 +123,11 @@ namespace HelloGridView
             var text = "Next Pattern: ";
             var div = "-";*/
 
-            nextPattern.Text = "Next Pattern: " + patternArray[0] + ", " + patternArray[1] + ", " + patternArray[2];
+            combo1.Text = patternArray[0];
+            combo2.Text = patternArray[1];
+            combo3.Text = patternArray[2];
+
+
         }
 
    

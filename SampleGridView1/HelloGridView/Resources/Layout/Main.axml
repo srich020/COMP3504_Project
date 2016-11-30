@@ -3,13 +3,38 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ColorBG1">
-    <TextView
-        android:text="Next Pattern:"
+    android:background="@drawable/GameBoardBG1">
+    <RelativeLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:id="@+id/NextPattern" />
+        android:id="@+id/relativeLayout1">
+        <TextView
+            android:text="Blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textSize="30sp"
+            android:id="@+id/combo1"
+            android:layout_marginLeft="10dp" />
+        <TextView
+            android:text="Yellow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:id="@+id/combo2" />
+        <TextView
+            android:text="Red"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:textSize="30sp"
+            android:id="@+id/combo3"
+            android:layout_marginRight="10dp" />
+    </RelativeLayout>
     <TextView
         android:text="Score: 0"
         android:layout_width="match_parent"

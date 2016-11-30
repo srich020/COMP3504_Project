@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Widget;
 using Java.Util;
 using Android.Systems;
+using Android.Text;
 using Java.Lang;
 using System.Timers;
 using Android.Media;
@@ -31,6 +32,8 @@ namespace HelloGridView
         public MediaPlayer player;
         public MediaPlayer MatchSound;
         public MediaPlayer failMatchSound;
+        public MediaPlayer timerAlmostDoneSound;
+        public MediaPlayer endOfGameSound;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -49,11 +52,13 @@ namespace HelloGridView
             timer.Start();
             //end timer things
 
-            //music and sound
+            //music and sound effect players
             player = MediaPlayer.Create(this, Resource.Raw.lightisgreen);
             MatchSound = MediaPlayer.Create(this, Resource.Raw.success);
             failMatchSound = MediaPlayer.Create(this, Resource.Raw.gameSoundIncorrect);
-            player.Start();
+            timerAlmostDoneSound = MediaPlayer.Create(this, Resource.Raw.finsError2);
+            endOfGameSound = MediaPlayer.Create(this, Resource.Raw.shortBuzzer);
+            player.Start(); //starts background music - NEEDS to react to options preferences
 
             gridAdapter = new ImageAdapter(this);
             gridview.Adapter = gridAdapter;
@@ -66,6 +71,7 @@ namespace HelloGridView
             gameCntr.loadBoard();
             gameCntr.score = 0;
             score = 0;
+            MatchSound.Start();
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
@@ -75,7 +81,12 @@ namespace HelloGridView
             int mSec = 30 - sec;
             printSec = (mSec < 10) ? "0" + mSec.ToString() : mSec.ToString();
             RunOnUiThread(() => { timerText.Text = "0:" + printSec; });
+            if (sec == 25 || sec == 26 || sec == 27 || sec == 28 || sec == 29)
+            {
+                timerAlmostDoneSound.Start();
+            }
             if (sec == 30) {
+                endOfGameSound.Start();
                 Intent startScore = new Intent(this, typeof(HelloGridView.EnterHighScore));
                 startScore.PutExtra("score",String.ValueOf(gameCntr.score));
                 StartActivity(startScore);
@@ -87,6 +98,25 @@ namespace HelloGridView
         private void updatePattern()
         {
             patternArray = gameCntr.getRandPattern();
+            //trying to make the pattern words into specific colors 
+            //BACKUP: var text = "Next Pattern: " + patternArray[0] + ", " + patternArray[1] + ", " + patternArray[2];
+            /*      case 0: stringPatt[i] ="Blue"; break;
+                    case 1: stringPatt[i] = "Green"; break;
+                    case 2: stringPatt[i] = "Red"; break;
+                    case 3: stringPatt[i] = "Yellow"; break;
+            SpannableStringBuilder builder = new SpannableStringBuilder();
+
+            SpannableString str1 = new SpannableString("Text1");
+            str1.setSpan(new  (Color.RED), 0, str1.length(), 0);
+            builder.append(str1);
+
+            SpannableString str2 = new SpannableString(appMode.toString());
+            str2.setSpan(new ForegroundColorSpan(Color.GREEN), 0, str2.length(), 0);
+            builder.append(str2);
+
+            var text = "Next Pattern: ";
+            var div = "-";*/
+
             nextPattern.Text = "Next Pattern: " + patternArray[0] + ", " + patternArray[1] + ", " + patternArray[2];
         }
 

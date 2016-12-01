@@ -3,8 +3,16 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/GameBoardBG1">
-    <RelativeLayout
+    android:background="@drawable/GameBoardBG1"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+       <TextView
+        android:text="Next pattern:"
+        android:textSize="15dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/next" />
+      <RelativeLayout
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_marginTop="5dp"
@@ -18,7 +26,7 @@
             android:gravity="left"
             android:textSize="30sp"
             android:id="@+id/combo1"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginLeft="15dp" />
         <TextView
             android:text="Yellow"
             android:layout_width="match_parent"
@@ -33,11 +41,12 @@
             android:gravity="right"
             android:textSize="30sp"
             android:id="@+id/combo3"
-            android:layout_marginRight="10dp" />
+            android:layout_marginRight="15dp" />
     </RelativeLayout>
     <TextView
         android:text="Score: 0"
         android:layout_width="match_parent"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:textSize="25dp"
         android:id="@+id/scoreBox" />

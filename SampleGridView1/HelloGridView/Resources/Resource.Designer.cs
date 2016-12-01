@@ -51,37 +51,40 @@ namespace HelloGridView
 			public const int Blue_static = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int ColorBG1 = 2130837506;
+			public const int color = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int GameBoardBG1 = 2130837507;
+			public const int ColorBG1 = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int Green_selected = 2130837508;
+			public const int GameBoardBG1 = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int Green_static = 2130837509;
+			public const int Green_selected = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int HotToPlay_1 = 2130837510;
+			public const int Green_static = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int Icon = 2130837511;
+			public const int HotToPlay_1 = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int LogoPull_nobg = 2130837512;
+			public const int Icon = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int Red_selected = 2130837513;
+			public const int LogoPull_nobg = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int Red_static = 2130837514;
+			public const int Red_selected = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int Yellow_selected = 2130837515;
+			public const int Red_static = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int Yellow_static = 2130837516;
+			public const int Yellow_selected = 2130837516;
+			
+			// aapt resource value: 0x7f02000d
+			public const int Yellow_static = 2130837517;
 			
 			static Drawable()
 			{
@@ -99,8 +102,8 @@ namespace HelloGridView
 			// aapt resource value: 0x7f060004
 			public const int HSmenuButton = 2131099652;
 			
-			// aapt resource value: 0x7f06001a
-			public const int MMtitle = 2131099674;
+			// aapt resource value: 0x7f06001b
+			public const int MMtitle = 2131099675;
 			
 			// aapt resource value: 0x7f060002
 			public const int Name = 2131099650;
@@ -117,29 +120,29 @@ namespace HelloGridView
 			// aapt resource value: 0x7f060010
 			public const int button1 = 2131099664;
 			
-			// aapt resource value: 0x7f06001f
-			public const int checkBox1 = 2131099679;
-			
 			// aapt resource value: 0x7f060020
-			public const int checkBox2 = 2131099680;
+			public const int checkBox1 = 2131099680;
 			
-			// aapt resource value: 0x7f060012
-			public const int combo1 = 2131099666;
+			// aapt resource value: 0x7f060021
+			public const int checkBox2 = 2131099681;
 			
 			// aapt resource value: 0x7f060013
-			public const int combo2 = 2131099667;
+			public const int combo1 = 2131099667;
 			
 			// aapt resource value: 0x7f060014
-			public const int combo3 = 2131099668;
+			public const int combo2 = 2131099668;
 			
-			// aapt resource value: 0x7f060018
-			public const int gridview = 2131099672;
+			// aapt resource value: 0x7f060015
+			public const int combo3 = 2131099669;
+			
+			// aapt resource value: 0x7f060019
+			public const int gridview = 2131099673;
 			
 			// aapt resource value: 0x7f06000f
 			public const int imageView1 = 2131099663;
 			
-			// aapt resource value: 0x7f06001e
-			public const int instructionsButton = 2131099678;
+			// aapt resource value: 0x7f06001f
+			public const int instructionsButton = 2131099679;
 			
 			// aapt resource value: 0x7f060008
 			public const int instructionsMenu = 2131099656;
@@ -150,38 +153,41 @@ namespace HelloGridView
 			// aapt resource value: 0x7f060005
 			public const int label = 2131099653;
 			
-			// aapt resource value: 0x7f060019
-			public const int logoImage = 2131099673;
+			// aapt resource value: 0x7f06001a
+			public const int logoImage = 2131099674;
 			
-			// aapt resource value: 0x7f060016
-			public const int matchBox = 2131099670;
-			
-			// aapt resource value: 0x7f06001d
-			public const int optionsButton = 2131099677;
-			
-			// aapt resource value: 0x7f06001b
-			public const int playButton = 2131099675;
-			
-			// aapt resource value: 0x7f060022
-			public const int radioButton1 = 2131099682;
-			
-			// aapt resource value: 0x7f060023
-			public const int radioButton2 = 2131099683;
-			
-			// aapt resource value: 0x7f060024
-			public const int radioButton3 = 2131099684;
-			
-			// aapt resource value: 0x7f060021
-			public const int radioGroup1 = 2131099681;
+			// aapt resource value: 0x7f060017
+			public const int matchBox = 2131099671;
 			
 			// aapt resource value: 0x7f060011
-			public const int relativeLayout1 = 2131099665;
+			public const int next = 2131099665;
 			
-			// aapt resource value: 0x7f060015
-			public const int scoreBox = 2131099669;
+			// aapt resource value: 0x7f06001e
+			public const int optionsButton = 2131099678;
 			
 			// aapt resource value: 0x7f06001c
-			public const int scoreButton = 2131099676;
+			public const int playButton = 2131099676;
+			
+			// aapt resource value: 0x7f060023
+			public const int radioButton1 = 2131099683;
+			
+			// aapt resource value: 0x7f060024
+			public const int radioButton2 = 2131099684;
+			
+			// aapt resource value: 0x7f060025
+			public const int radioButton3 = 2131099685;
+			
+			// aapt resource value: 0x7f060022
+			public const int radioGroup1 = 2131099682;
+			
+			// aapt resource value: 0x7f060012
+			public const int relativeLayout1 = 2131099666;
+			
+			// aapt resource value: 0x7f060016
+			public const int scoreBox = 2131099670;
+			
+			// aapt resource value: 0x7f06001d
+			public const int scoreButton = 2131099677;
 			
 			// aapt resource value: 0x7f060006
 			public const int studentListView = 2131099654;
@@ -204,8 +210,8 @@ namespace HelloGridView
 			// aapt resource value: 0x7f06000d
 			public const int textView6 = 2131099661;
 			
-			// aapt resource value: 0x7f060017
-			public const int timerText = 2131099671;
+			// aapt resource value: 0x7f060018
+			public const int timerText = 2131099672;
 			
 			static Id()
 			{

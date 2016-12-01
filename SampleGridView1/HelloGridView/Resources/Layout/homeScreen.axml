@@ -5,8 +5,9 @@
     android:minWidth="25px"
     android:minHeight="25px"
     android:paddingLeft="25px"
-    android:paddingRight="25px">
-  <Button
+    android:paddingRight="25px"
+    android:background="@drawable/GameBoardBG1">
+    <Button
         android:text="RETURN TO MAIN MENU"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,25 +15,25 @@
         android:paddingRight="50px"
         android:textSize="15sp"
         android:id="@+id/HSmenuButton" />
-  <TextView
-      android:id="@+id/label"
-      android:textSize="15pt"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:gravity="center"
-      android:text="High Scores" />
-  <ListView
-      android:minWidth="25px"
-      android:minHeight="25px"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@id/label"
-      android:id="@+id/studentListView" />
-  <TextView
-      android:text=" "
-      android:textAppearance="?android:attr/textAppearanceSmall"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_below="@id/HSmenuButton"
-      android:id="@+id/textView1" />
+    <TextView
+        android:id="@+id/label"
+        android:textSize="15pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="High Scores" />
+    <ListView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label"
+        android:id="@+id/studentListView" />
+    <TextView
+        android:text=" "
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/HSmenuButton"
+        android:id="@+id/textView1" />
 </RelativeLayout>

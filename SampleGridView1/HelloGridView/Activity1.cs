@@ -8,10 +8,11 @@ using Android.Text;
 using Java.Lang;
 using System.Timers;
 using Android.Media;
+using Android.Graphics;
 
 namespace HelloGridView
 {
-    [Activity(Label = "30 Seconds of Color!", Icon = "@drawable/icon")]
+    [Activity(Label = "30 Seconds of Color!", Icon = "@drawable/icon", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait, Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]
     public class Activity1 : Activity
     {
         private int count = 0;
@@ -25,7 +26,6 @@ namespace HelloGridView
         private int[] selectedValues = new int[3];
         private ColorSquare[] selectedSquares = new ColorSquare[3];
         private GameController gameCntr = GameController.getInstance();
-        private int score;
         private int sec = 0;
         private System.Timers.Timer timer;
         private TextView timerText;
@@ -37,7 +37,11 @@ namespace HelloGridView
         private TextView combo1;
         private TextView combo2;
         private TextView combo3;
-
+        private TextView next;
+        private Color red = new Color(Color.ParseColor("red"));
+        private Color blue = new Color(Color.ParseColor("cyan"));
+        private Color yellow = new Color(Color.ParseColor("yellow"));
+        private Color green = new Color(Color.ParseColor("green"));
         protected override void OnCreate(Bundle bundle)
         {
             //basic start up creation
@@ -68,6 +72,7 @@ namespace HelloGridView
             combo1 = FindViewById<TextView>(HelloGridView.Resource.Id.combo1);
             combo2 = FindViewById<TextView>(HelloGridView.Resource.Id.combo2);
             combo3 = FindViewById<TextView>(HelloGridView.Resource.Id.combo3);
+            next = FindViewById<TextView>(HelloGridView.Resource.Id.next);
             scoreBox = FindViewById<TextView>(HelloGridView.Resource.Id.scoreBox);
             matchBox = FindViewById<TextView>(HelloGridView.Resource.Id.matchBox);
             updatePattern();
@@ -75,10 +80,8 @@ namespace HelloGridView
             gridview.ItemClick += Gridview_ItemClick;
             gameCntr.loadBoard();
             gameCntr.score = 0;
-            score = 0;
             MatchSound.Start();
         }
-        
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
@@ -87,6 +90,10 @@ namespace HelloGridView
             int mSec = 30 - sec;
             printSec = (mSec < 10) ? "0" + mSec.ToString() : mSec.ToString();
             RunOnUiThread(() => { timerText.Text = "0:" + printSec; });
+            if(sec == 2)
+            {
+                next.Alpha = 0;
+            }
             if (sec == 25 || sec == 26 || sec == 27 || sec == 28 || sec == 29)
             {
                 timerAlmostDoneSound.Start();
@@ -124,12 +131,33 @@ namespace HelloGridView
             var div = "-";*/
 
             combo1.Text = patternArray[0];
+            combo1.SetTextColor(getColors(patternArray[0]));
             combo2.Text = patternArray[1];
+            combo2.SetTextColor(getColors(patternArray[1]));
             combo3.Text = patternArray[2];
-
-
+            combo3.SetTextColor(getColors(patternArray[2]));
         }
-
+        public override void OnBackPressed()
+        {
+            player.Stop();
+            timer.Stop();
+            this.Finish();
+        }
+        private Color getColors(string colour)
+        {
+            if (colour == "Red")
+            {
+                return red;
+            } else if (colour == "Green")
+            {
+                return green;
+            } else if(colour == "Blue")
+            {
+                return blue;
+            }else{
+                return yellow;
+            }
+        }
    
 
         //Doesnt work properly yet
@@ -216,5 +244,6 @@ namespace HelloGridView
                 //will never happen
             }
         }
+
     }
 }

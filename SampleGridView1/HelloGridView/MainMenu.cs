@@ -13,7 +13,7 @@ using Android;
 
 namespace HelloGridView
 {
-    [Activity(Label = "MainMenu", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "30Secs", MainLauncher = true, Icon = "@drawable/color", Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]
     public class MainMenu : Activity
     {
         public Button PlayButton;

@@ -88,8 +88,15 @@ namespace HelloGridView
                 music.Checked = false;
             }
             standard = FindViewById<RadioButton>(HelloGridView.Resource.Id.standard);
-            standard.Checked = true;
+            if (game.difficultyHard == false)
+            {
+                standard.Checked = true;
+            }
             hard = FindViewById<RadioButton>(HelloGridView.Resource.Id.hard);
+            if (game.difficultyHard)
+            {
+                hard.Checked = true;
+            }
         }
     }
 }

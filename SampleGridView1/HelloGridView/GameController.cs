@@ -20,6 +20,9 @@ namespace HelloGridView
                             Resource.Drawable.Red_static, Resource.Drawable.Yellow_static };
         public int score { get; set; }
         //private Activity1 gameRef = new Activity1();
+        public bool sound { get; set; }
+        public bool music { get; set; }
+        public bool difficultyHard { get; set; }
 
         public static GameController getInstance()
         {
@@ -34,6 +37,9 @@ namespace HelloGridView
         private GameController()
         {
             board = new ColorSquare[6,6];
+            sound = true;
+            music = true;
+            difficultyHard = false;
         }
 
         public int length() { return board.Length;  }

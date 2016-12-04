@@ -42,12 +42,14 @@ namespace HelloGridView
         private Color blue = new Color(Color.ParseColor("cyan"));
         private Color yellow = new Color(Color.ParseColor("yellow"));
         private Color green = new Color(Color.ParseColor("green"));
+        private Color[] randomColor;
+        private Random rng = new Random();
         protected override void OnCreate(Bundle bundle)
         {
             //basic start up creation
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Main);
-
+            randomColor = new Color[] {red,blue,yellow,green };
             //initializes the gridview. Set the adapter to the customer ImageAdapter
             gridview = FindViewById<GridView>(Resource.Id.gridview);
             //timer things
@@ -60,12 +62,18 @@ namespace HelloGridView
             //end timer things
 
             //music and sound effect players
-            player = MediaPlayer.Create(this, Resource.Raw.lightisgreen);
-            MatchSound = MediaPlayer.Create(this, Resource.Raw.success);
-            failMatchSound = MediaPlayer.Create(this, Resource.Raw.gameSoundIncorrect);
-            timerAlmostDoneSound = MediaPlayer.Create(this, Resource.Raw.finsError2);
-            endOfGameSound = MediaPlayer.Create(this, Resource.Raw.shortBuzzer);
-            player.Start(); //starts background music - NEEDS to react to options preferences
+            if (gameCntr.sound == true)
+            {
+                MatchSound = MediaPlayer.Create(this, Resource.Raw.success);
+                failMatchSound = MediaPlayer.Create(this, Resource.Raw.gameSoundIncorrect);
+                timerAlmostDoneSound = MediaPlayer.Create(this, Resource.Raw.finsError2);
+                endOfGameSound = MediaPlayer.Create(this, Resource.Raw.shortBuzzer);
+            }
+            if (gameCntr.music == true)
+            {
+                player = MediaPlayer.Create(this, Resource.Raw.lightisgreen);
+                player.Start();
+            }//starts background music - NEEDS to react to options preferences
 
             gridAdapter = new ImageAdapter(this);
             gridview.Adapter = gridAdapter;
@@ -80,7 +88,10 @@ namespace HelloGridView
             gridview.ItemClick += Gridview_ItemClick;
             gameCntr.loadBoard();
             gameCntr.score = 0;
-            MatchSound.Start();
+            if (gameCntr.sound == true)
+            {
+                MatchSound.Start();
+            }
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
@@ -96,14 +107,17 @@ namespace HelloGridView
             }
             if (sec == 25 || sec == 26 || sec == 27 || sec == 28 || sec == 29)
             {
-                timerAlmostDoneSound.Start();
+                if (gameCntr.sound == true) { timerAlmostDoneSound.Start(); }
             }
             if (sec == 30) {
-                endOfGameSound.Start();
+                if (gameCntr.sound == true) { endOfGameSound.Start(); }
                 Intent startScore = new Intent(this, typeof(HelloGridView.EnterHighScore));
                 startScore.PutExtra("score",String.ValueOf(gameCntr.score));
                 StartActivity(startScore);
-                player.Stop();
+                if (gameCntr.music == true)
+                {
+                    player.Stop();
+                }
                 Finish();
             }//what to do when time elapses
         }
@@ -129,17 +143,31 @@ namespace HelloGridView
 
             var text = "Next Pattern: ";
             var div = "-";*/
-
             combo1.Text = patternArray[0];
-            combo1.SetTextColor(getColors(patternArray[0]));
             combo2.Text = patternArray[1];
-            combo2.SetTextColor(getColors(patternArray[1]));
             combo3.Text = patternArray[2];
-            combo3.SetTextColor(getColors(patternArray[2]));
+            if (gameCntr.difficultyHard)
+            {
+                for(int i = 0; i < patternArray.Length; i++)
+                {
+                    combo1.SetTextColor(randomColor[rng.NextInt(randomColor.Length)]);
+                    combo2.SetTextColor(randomColor[rng.NextInt(randomColor.Length)]);
+                    combo3.SetTextColor(randomColor[rng.NextInt(randomColor.Length)]);
+                }
+            }
+            else
+            { 
+                combo1.SetTextColor(getColors(patternArray[0]));
+                combo2.SetTextColor(getColors(patternArray[1]));
+                combo3.SetTextColor(getColors(patternArray[2]));
+            }
         }
         public override void OnBackPressed()
         {
-            player.Stop();
+            if (gameCntr.music == true)
+            {
+                player.Stop();
+            }
             timer.Stop();
             this.Finish();
         }
@@ -219,7 +247,10 @@ namespace HelloGridView
                     if (stringCompPatt[0]==patternArray[0] && stringCompPatt[1] == patternArray[1] && stringCompPatt[2] == patternArray[2] && gameCntr.processMatch(selectedSquares))
                     {
 
-                        MatchSound.Start();
+                        if (gameCntr.sound == true)
+                        {
+                            MatchSound.Start();
+                        }
                         matchBox.Text = "MATCH!";
                         scoreBox.Text = "Score: "+gameCntr.score;
                         //reset all selected values AND inbetween squares (to do)
@@ -231,7 +262,10 @@ namespace HelloGridView
                     }
                     else 
                     {//the match wasn't corrent
-                        failMatchSound.Start();
+                        if (gameCntr.sound == true)
+                        {
+                            failMatchSound.Start();
+                        }
                         gameCntr.deToggleAll();
                         matchBox.Text = "No match, try again!";
                     }

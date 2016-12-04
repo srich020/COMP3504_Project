@@ -6,7 +6,7 @@
     android:paddingLeft="30dp"
     android:paddingRight="30dp"
     android:paddingTop="20dp"
-              android:background="@drawable/GameBoardBG1">
+    android:background="@drawable/GameBoardBG1">
     <TextView
         android:text="OPTIONS"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -18,12 +18,14 @@
         android:text="SOUND"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/checkBox1" />
+        android:id="@+id/sound" 
+        android:checked="true"/>
     <CheckBox
         android:text="MUSIC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/checkBox2" />
+        android:id="@+id/music"
+        android:checked="true"/>
     <TextView
         android:text="DIFFICULTY:"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -40,18 +42,12 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:checked="true"
             android:text="STANDARD"
-            android:id="@+id/radioButton1" />
+            android:id="@+id/standard" />
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="HARD"
-            android:id="@+id/radioButton2" />
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="NIGHTMARE"
-            android:id="@+id/radioButton3" />
+            android:id="@+id/hard" />
     </RadioGroup>
 </LinearLayout>

@@ -20,7 +20,7 @@ namespace HelloGridView
         public Button HighScoresButton;
         public Button OptionsButton;
         public Button instructionsButton;
-        
+        private GameController game = GameController.getInstance();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {

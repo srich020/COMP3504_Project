@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px"
-     android:background="@drawable/GameBoardBG1">
+    android:background="@drawable/GameBoardBG1">
     <TextView
         android:text="Your Score"
         android:textSize="15pt"
@@ -27,6 +27,7 @@
         android:inputType="textPersonName"
         android:hint="Enter your name here"
         android:layout_width="match_parent"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:id="@+id/Name" />
     <Button

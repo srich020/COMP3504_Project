@@ -10,7 +10,7 @@
         android:textSize="15dp"
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:id="@+id/next" />
       <RelativeLayout
         android:minWidth="25px"
@@ -26,7 +26,7 @@
             android:gravity="left"
             android:textSize="30sp"
             android:id="@+id/combo1"
-            android:layout_marginLeft="15dp" />
+            android:layout_marginLeft="50dp" />
         <TextView
             android:text="Yellow"
             android:layout_width="match_parent"
@@ -41,8 +41,15 @@
             android:gravity="right"
             android:textSize="30sp"
             android:id="@+id/combo3"
-            android:layout_marginRight="15dp" />
+            android:layout_marginRight="50dp" />
     </RelativeLayout>
+            <TextView
+          android:text="GO!"
+          android:textSize="25dp"
+          android:gravity="center"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/matchBox" />
     <TextView
         android:text="Score: 0"
         android:layout_width="match_parent"
@@ -50,13 +57,6 @@
         android:layout_height="wrap_content"
         android:textSize="25dp"
         android:id="@+id/scoreBox" />
-    <TextView
-        android:text="GO!"
-        android:textSize="25dp"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/matchBox" />
     <TextView
         android:text="0:30"
         android:textSize="35dp"

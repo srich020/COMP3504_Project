@@ -53,7 +53,7 @@ namespace HelloGridView
 
             TextView txt = convertView.FindViewById<TextView>(Android.Resource.Id.Text1);
             txt.Text = ""+st;//this will call the toString of the Score class
-            txt.Text += "   " + st.name;
+            txt.Text += " - " + st.name;
             return convertView;
         }
     }

@@ -153,8 +153,8 @@ namespace HelloGridView
 			// aapt resource value: 0x7f06001a
 			public const int logoImage = 2131099674;
 			
-			// aapt resource value: 0x7f060017
-			public const int matchBox = 2131099671;
+			// aapt resource value: 0x7f060016
+			public const int matchBox = 2131099670;
 			
 			// aapt resource value: 0x7f060021
 			public const int music = 2131099681;
@@ -174,8 +174,8 @@ namespace HelloGridView
 			// aapt resource value: 0x7f060012
 			public const int relativeLayout1 = 2131099666;
 			
-			// aapt resource value: 0x7f060016
-			public const int scoreBox = 2131099670;
+			// aapt resource value: 0x7f060017
+			public const int scoreBox = 2131099671;
 			
 			// aapt resource value: 0x7f06001d
 			public const int scoreButton = 2131099677;

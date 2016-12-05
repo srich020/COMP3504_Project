@@ -42,12 +42,12 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="STANDARD"
+            android:text="NORMAL"
             android:id="@+id/standard" />
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="HARD"
+            android:text="HARD - Randomizes Patter Color!"
             android:id="@+id/hard" />
     </RadioGroup>
 </LinearLayout>

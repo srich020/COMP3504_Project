@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace HelloGridView
 {
-    [Activity(Label = "EnterHighScore")]
+    [Activity(Label = "EnterHighScore", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait, Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]
     public class EnterHighScore : Activity { 
     private TextView scoreText;
     private EditText nameText;

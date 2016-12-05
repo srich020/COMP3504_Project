@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace HelloGridView
 {
-    [Activity(Label = "Instructions")]
+    [Activity(Label = "Instructions", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait, Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]
     public class instructions : Activity
     {
         private Button mainMenu;

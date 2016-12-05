@@ -16,11 +16,15 @@ namespace HelloGridView
 {
     
     public class Score
+      
     {
+
         [PrimaryKey,AutoIncrement]
         public int ID { get; set; } // auto set when isnerted to the db
         public int score { get; set; }
         public string name { get; set; }
+        public bool hard { get; set; }
+        private GameController game = GameController.getInstance();
        
         public Score() { } // must have a default constructor to use SQLite methods 
 
@@ -28,6 +32,7 @@ namespace HelloGridView
         {
             this.score = score;
             this.name = name;
+            this.hard = game.difficultyHard;
         }
 
         public override string ToString() // called when object geven to list for default list display

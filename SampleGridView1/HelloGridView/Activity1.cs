@@ -71,7 +71,7 @@ namespace HelloGridView
             }
             if (gameCntr.music == true)
             {
-                player = MediaPlayer.Create(this, Resource.Raw.lightisgreen);
+                player = MediaPlayer.Create(this, Resource.Raw.littleHappyTune);
                 player.Start();
             }//starts background music - NEEDS to react to options preferences
 

@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/scoreButton" />
     <Button
-        android:text="OPTIONS"
+        android:text="Options"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/optionsButton" />

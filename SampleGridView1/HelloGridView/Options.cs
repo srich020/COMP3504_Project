@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace HelloGridView
 {
-    [Activity(Label = "HelloGridView")]
+    [Activity(Label = "Options", ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait, Theme = "@android:style/Theme.Black.NoTitleBar.Fullscreen")]
     public class Options : Activity
     {
         private CheckBox sound;

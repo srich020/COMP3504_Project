@@ -10,7 +10,7 @@ using Android.Views.InputMethods;
 
 namespace HelloGridView
 {
-    [Activity(Label = "HIGH SCORES", Icon = "@drawable/icon")] 
+    [Activity(Label = "High Scores", Icon = "@drawable/icon")] 
     public class HomeScreen : Activity
     {
         private LocalDataAccessLayer data = LocalDataAccessLayer.getInstance();

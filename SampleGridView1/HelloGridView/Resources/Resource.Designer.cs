@@ -72,19 +72,22 @@ namespace HelloGridView
 			public const int Icon = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int LogoPull_nobg = 2130837513;
+			public const int IconClearBackground = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int Red_selected = 2130837514;
+			public const int LogoPull_nobg = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int Red_static = 2130837515;
+			public const int Red_selected = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int Yellow_selected = 2130837516;
+			public const int Red_static = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int Yellow_static = 2130837517;
+			public const int Yellow_selected = 2130837517;
+			
+			// aapt resource value: 0x7f02000e
+			public const int Yellow_static = 2130837518;
 			
 			static Drawable()
 			{

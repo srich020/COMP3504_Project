@@ -57,9 +57,6 @@ namespace HelloGridView
             if (st.hard)
             {
                 txt.Text += " - (Hard)";
-            }else
-            {
-                txt.Text += " - (Standard)";
             }
             return convertView;
         }
